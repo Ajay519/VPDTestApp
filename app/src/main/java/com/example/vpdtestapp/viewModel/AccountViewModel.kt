@@ -46,7 +46,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
 
         if (sourceAccountData == null || destinationAccountData == null) {
             withContext(Dispatchers.IO) {
-                transferStatus.value = "Source or destination account not found"
+                transferStatus.postValue( "Source or destination account not found")
             }
             return
         }
@@ -54,7 +54,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         // Validate sufficient funds in the source account
         if (sourceAccountData.balance < amount) {
             withContext(Dispatchers.IO) {
-                transferStatus.value = "Insufficient funds"
+                transferStatus.postValue("Insufficient funds")
             }
             return
         }
@@ -77,9 +77,9 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
 
         // Update transfer summary and status
         withContext(Dispatchers.IO) {
-            transferSummary.value =
-                "Transfer Summary:\nSource: ${sourceAccountData.accountNumber}\nDestination: ${destinationAccountData.accountNumber}\nAmount: $amount"
-            transferStatus.value = "Transfer successful"
+            transferStatus.postValue("Transfer successful")
+            transferSummary.postValue("Transfer Summary:\nSource: ${sourceAccountData.accountNumber}\nDestination: ${destinationAccountData.accountNumber}\nAmount: $amount")
+
         }
     }
 
