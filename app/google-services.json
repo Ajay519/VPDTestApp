@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "73179054913",
+    "project_id": "vpdtest-6b33f",
+    "storage_bucket": "vpdtest-6b33f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73179054913:android:e050f140564abc44c857c0",
+        "android_client_info": {
+          "package_name": "com.example.vpdtestapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCik61HYWUBFvhMNaPsN1W8dlSydMAzxA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

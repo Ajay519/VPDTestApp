@@ -1,0 +1,73 @@
+[versions]
+agp = "8.5.2"
+kotlin = "1.9.0"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.9.3"
+composeBom = "2024.04.01"
+
+
+# Firebase
+firebase-bom = "30.0.1"
+firebase-auth = "21.0.1"
+firebase-database = "20.0.3"
+
+# AndroidX
+recyclerview = "1.2.1"
+lifecycle-viewmodel-ktx = "2.4.1"
+lifecycle-livedata-ktx = "2.4.1"
+material = "1.4.0"
+
+# Room
+room-runtime = "2.4.2"
+room-ktx = "2.4.2"
+room-compiler = "2.4.2"
+
+# DataBinding version
+databinding = "7.3.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# Firebase BoM
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+
+# Firebase SDK
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebase-auth" }
+firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebase-database" }
+
+# AndroidX libraries
+recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+
+# Room dependencies
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ktx" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-compiler" }
+# databinding dependencies
+databinding-runtime = { module = "androidx.databinding:databinding-runtime", version.ref = "databinding" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version = "4.3.15" }  # Use the appropriate version
+
+

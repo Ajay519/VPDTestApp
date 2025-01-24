@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- Bind ViewModel here -->
+        <variable
+            name="viewModel"
+            type="com.example.vpdtestapp.viewModel.AccountViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Source Account Spinner -->
+        <Spinner
+            android:id="@+id/sourceAccountSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Destination Account Spinner -->
+        <Spinner
+            android:id="@+id/destinationAccountSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sourceAccountSpinner"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Transfer Amount EditText -->
+        <EditText
+            android:id="@+id/transferAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/destinationAccountSpinner"
+            android:hint="Enter Amount"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Confirm Transfer Button -->
+        <Button
+            android:id="@+id/confirmTransferButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transferAmount"
+            android:text="Confirm Transfer"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Transfer Summary TextView -->
+        <TextView
+            android:id="@+id/transferSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/confirmTransferButton"
+            android:text="Transfer Summary"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Transfer Status TextView -->
+        <TextView
+            android:id="@+id/transferStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transferSummary"
+            android:text="Transfer Status"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_red_dark" />
+
+    </RelativeLayout>
+</layout>
