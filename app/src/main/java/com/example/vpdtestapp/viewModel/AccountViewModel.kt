@@ -8,6 +8,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.vpdtestapp.AccountRepository
 import com.example.vpdtestapp.room.dao.Transaction
 import com.example.vpdtestapp.room.dao.UserAccount
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class AccountViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -23,7 +25,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
     val transferSummary = MutableLiveData<String>()
 
     // Method to simulate account transfer
-    fun performTransfer() {
+   suspend  fun performTransfer() {
 
         val source = sourceAccount.value.orEmpty()
         val destination = destinationAccount.value.orEmpty()
@@ -43,13 +45,17 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         val destinationAccountData = accountRepository.getAccountByNumber(destination)
 
         if (sourceAccountData == null || destinationAccountData == null) {
-            transferStatus.value = "Source or destination account not found"
+            withContext(Dispatchers.IO) {
+                transferStatus.value = "Source or destination account not found"
+            }
             return
         }
 
         // Validate sufficient funds in the source account
         if (sourceAccountData.balance < amount) {
-            transferStatus.value = "Insufficient funds"
+            withContext(Dispatchers.IO) {
+                transferStatus.value = "Insufficient funds"
+            }
             return
         }
 
@@ -70,8 +76,11 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         saveTransaction(transaction)
 
         // Update transfer summary and status
-        transferSummary.value = "Transfer Summary:\nSource: ${sourceAccountData.accountNumber}\nDestination: ${destinationAccountData.accountNumber}\nAmount: $amount"
-        transferStatus.value = "Transfer successful"
+        withContext(Dispatchers.IO) {
+            transferSummary.value =
+                "Transfer Summary:\nSource: ${sourceAccountData.accountNumber}\nDestination: ${destinationAccountData.accountNumber}\nAmount: $amount"
+            transferStatus.value = "Transfer successful"
+        }
     }
 
     // Method to save a transaction to the Room database
